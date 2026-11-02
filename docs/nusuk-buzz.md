@@ -24,7 +24,8 @@ No remote fonts, new JavaScript dependencies, or new motion are required.
 - [x] Apply brand assets, tokens, welcome copy, metadata and config.
 - [x] Verify unit, type, lint, build and browser paths, desktop and mobile.
 - [x] Independent review and affected-path re-review: no remaining blockers.
-- [ ] Commit and push both branches. Deployment is separate.
+- [x] Commit and push both branches: general baseline `411d413`, brand wave `0183076`.
+  Deployment is separate and has not been performed.
 
 Verification: 25 unit-test files / 101 tests pass; typecheck, lint and production
 build pass, including `/app/` asset paths and local font loading. Seven welcome
