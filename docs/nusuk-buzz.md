@@ -24,33 +24,45 @@ No remote fonts, new JavaScript dependencies, or new motion are required.
 - [x] Apply brand assets, tokens, welcome copy, metadata and config.
 - [x] Verify unit, type, lint, build and browser paths, desktop and mobile.
 - [x] Independent review and affected-path re-review: no remaining blockers.
-- [x] Commit and push both branches: general baseline `411d413`, brand wave `0183076`.
-  Deployment is separate and has not been performed.
+- [x] Keep reusable identity work on `main`: profile hydration, readable
+  `Member`/`Agent` fallbacks, bounded relay queries, malformed-event guards,
+  known-agent channel association, and browser test corrections
+  (7b1158e, 7044708, bc05005). Merged into this branch (eb48bfa, 931fee5).
+- [x] Complete Nusuk brand copy, invite gradient, Open Graph/Twitter cards,
+  favicons and install icons (9838d9d, 4a0705c).
+- [x] Declare the known Nusuk Agent in the public config as offline and
+  non-startable, and publish its kind:0 profile name/about/avatar.
+- [x] Deploy `buzz-web:4a0705c` to https://buzz.nusuk.buzz/app/ and validate
+  live HTTP and browser behavior.
 
-Verification: 25 unit-test files / 101 tests pass; typecheck, lint and production
-build pass, including `/app/` asset paths and local font loading. Seven welcome
-checks cover light/dark at 390px and 1440px, short 320/390x480 viewports and Chinese
-on mobile. Workspace screenshots at the same
-widths show no horizontal overflow or console errors. Measured text, muted text,
-button and focus contrast exceed AA thresholds in both themes.
+Verification: 25 unit-test files / 113 tests pass; typecheck, lint and production
+build pass, including `/app/` asset paths and local font loading. The full browser
+suite passes 43/43, covering light/dark at 390px and 1440px, short viewports,
+Chinese, invite consent, profile editing, channel/member management, local
+identity lifecycle, NIP-07, and live-style chat flows.
 
-The full browser suite reports 39 passes and one existing test mismatch:
-`tests/e2e/p0.spec.ts:219` clicks Save profile after entering an invalid picture
-URL, although the unchanged settings form disables that action and already shows
-the validation error. This general test issue is not changed on the brand branch.
-Live relay writes, deployment and a real screen-reader session are not tested.
+Live checks: config serves `Nusuk Buzz` with `wss://relay.nusuk.buzz` and the
+`Nusuk Agent` descriptor; favicon, 32px icon, Apple icon, 192/512 install icons,
+manifest and 1200x640 OG image return 200 with correct MIME types; the app title,
+OG/Twitter tags and `Nusuk Agent` (Offline) card render; the marketing site and
+relay health remain 200. The agent profile is published on the relay. Unnamed
+accounts render a deterministic localized `Member …` label, named accounts
+upgrade to their profile name, and no raw hex is used as a display name.
 
-Rollback: return to the general baseline commit; no data or storage migration.
+Rollback: restore `/home/gw/ops/buzz-web/releases/4a0705c/config.before.json`
+and `compose.before.yml`, then recreate only `web`; previous image
+`buzz-web:5b36cda` is retained. No data or storage migration is involved.
 Public config uses the existing Nusuk relay; deployment overrides remain
 authoritative for workspace names and endpoints; the product title and identity
-setup retain the Nusuk Buzz name. Empty agent configuration is deliberate: the external bridge is
-not a working autonomous companion. No runtime service is modified here.
+setup retain the Nusuk Buzz name. The agent is declared offline because its
+external bridge is not a working autonomous companion. No runtime service is
+modified by this branch.
 
 ## Review record
 
 The independent review found no blocker. The short-height clipping finding was
 upgraded to important and fixed with auto-margin centering after a regression
-test demonstrated a negative card top. All seven brand checks and 101 unit tests
+test demonstrated a negative card top. All seven brand checks and 113 unit tests
 pass after the fix. Keyboard testing now waits for the asynchronous vault check;
 Chinese copy and layout have a mobile browser assertion.
 
