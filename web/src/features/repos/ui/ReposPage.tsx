@@ -52,7 +52,7 @@ function CommunityEmptyState({ relayUrl }: { relayUrl: string }) {
     <div className="flex flex-1 items-center justify-center bg-background px-4 py-16 text-center">
       <div className="flex w-full max-w-xl flex-col items-center px-6 py-10 sm:px-12 sm:py-12">
         <div className="h-16 w-16 overflow-hidden bg-black" style={{ borderRadius: "22.37%" }}>
-          <img alt="Buzz" className="h-full w-full" src={buzzAppIcon} />
+          <img alt={t("app.title")} className="h-full w-full" src={buzzAppIcon} />
         </div>
         <h1 className="mt-6 text-2xl font-semibold text-foreground">{t("repos.communityEmpty")}</h1>
         <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">

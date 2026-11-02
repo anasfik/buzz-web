@@ -61,7 +61,7 @@ test("chat workspace loads with Buzz branding and relay data", async ({ page }) 
     "href",
     /app-icon\.png$/,
   );
-  await expect(page.getByRole("img", { name: "Buzz" })).toBeVisible();
+  await expect(page.getByRole("img", { name: "Nusuk Buzz", exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "general" })).toBeVisible();
   await expect(page.getByText("Relay is healthy", { exact: false })).toBeVisible();
   await expect(page.getByText("Codex(remote)").first()).toBeVisible();

@@ -130,11 +130,16 @@ export function IdentityGate({
     "mt-1.5 h-10 w-full rounded-md border bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-primary/30";
 
   return (
-    <div className="buzz-app-surface flex min-h-dvh items-center justify-center p-4">
-      <main className="w-full max-w-[440px] overflow-hidden rounded-lg border border-black/10 bg-background/95 shadow-2xl backdrop-blur-xl dark:border-white/10">
+    <div className="buzz-app-surface nusuk-identity-surface flex min-h-dvh justify-center p-4">
+      <main className="my-auto w-full max-w-[440px] overflow-hidden rounded-lg border border-black/10 bg-background/95 shadow-2xl backdrop-blur-xl dark:border-white/10">
         <div className="border-b px-6 pb-5 pt-7 text-center">
-          <img alt="Buzz" className="mx-auto h-14 w-14 rounded-[13px]" src={buzzAppIcon} />
-          <h1 className="mt-4 text-xl font-semibold">{config.communityName}</h1>
+          <img
+            alt={t("app.title")}
+            className="mx-auto h-14 w-14 rounded-[13px]"
+            src={buzzAppIcon}
+          />
+          <h1 className="nusuk-welcome-title mt-4 font-semibold">{config.communityName}</h1>
+          <p className="mt-3 text-sm text-muted-foreground">{t("identity.welcome")}</p>
           <p className="mt-1 truncate text-xs text-muted-foreground">{config.relayUrl}</p>
         </div>
 

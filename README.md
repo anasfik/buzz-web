@@ -1,4 +1,14 @@
-# Buzz Web
+# Nusuk Buzz
+
+This is the `nusuk-buzz` edition of Buzz Web: the emerald, ivory and gold
+collaboration companion to [Nusuk Buzz](https://nusuk.buzz/), part of Tools for
+the Heart. The reusable, unbranded client remains on `main`.
+
+Read [agent.md](agent.md) for branch responsibilities and
+[the brand contract](docs/nusuk-buzz.md) for the source and verification plan.
+The bundled public config connects to `wss://relay.nusuk.buzz`; deployment-mounted
+config overrides it. Existing identities and saved theme preferences are retained.
+Mail, SSO, huddles and canvases on the vision site are not implemented here.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 

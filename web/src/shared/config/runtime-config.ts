@@ -74,7 +74,7 @@ export async function loadRuntimeConfig(): Promise<RuntimeConfig> {
     communityName:
       typeof raw.communityName === "string" && raw.communityName.trim()
         ? raw.communityName.trim()
-        : "Buzz",
+        : "Nusuk Buzz",
     relayUrl: normalizeRelayUrl(raw.relayUrl),
     agents,
     agentControlUrl: normalizeAgentControlUrl(raw.agentControlUrl),

@@ -69,6 +69,6 @@ evidence-led work; cosmetic changes do not resolve them.
 ## Current milestone
 
 - General baseline: existing browser customization retained on `main`.
-- Next: derive `nusuk-buzz` and apply the approved Nusuk family branding.
+- `nusuk-buzz`: Nusuk family branding applied; see `docs/nusuk-buzz.md` for verification and remaining gaps.
 - Brand authority: `nusuk-labs/nusuk-buzz-vision` and `https://nusuk.buzz/`.
 - Preserve existing user flows and data. Deployment is a separate approval gate.

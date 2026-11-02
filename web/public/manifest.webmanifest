@@ -1,12 +1,12 @@
 {
-  "name": "Buzz Web",
-  "short_name": "Buzz",
-  "description": "Private collaboration on your Buzz relay",
+  "name": "Nusuk Buzz",
+  "short_name": "Nusuk Buzz",
+  "description": "A calm place for your circles. Tools for the Heart, connected by Nostr.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#171717",
-  "theme_color": "#e6e6b6",
+  "background_color": "#0c211a",
+  "theme_color": "#0c211a",
   "icons": [
     {
       "src": "./app-icon.png",

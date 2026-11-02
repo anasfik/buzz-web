@@ -1,7 +1,7 @@
 export type AppLocale = "en" | "zh-CN";
 
 const messages = {
-  "app.title": { en: "Buzz Web", "zh-CN": "Buzz Web" },
+  "app.title": { en: "Nusuk Buzz", "zh-CN": "Nusuk Buzz" },
   "common.agent": { en: "Agent", "zh-CN": "Agent" },
   "common.cancel": { en: "Cancel", "zh-CN": "取消" },
   "common.channel": { en: "Channel", "zh-CN": "频道" },
@@ -163,7 +163,11 @@ const messages = {
   "identity.confirmPassphrase": { en: "Confirm passphrase", "zh-CN": "确认口令" },
   "identity.create": { en: "Create", "zh-CN": "新建" },
   "identity.createBackup": { en: "Create encrypted backup", "zh-CN": "创建加密备份" },
-  "identity.createTitle": { en: "Create a Buzz identity", "zh-CN": "创建 Buzz 身份" },
+  "identity.createTitle": { en: "Create a Nusuk Buzz identity", "zh-CN": "创建 Nusuk Buzz 身份" },
+  "identity.welcome": {
+    en: "A calm place for your circles. Your key, your identity.",
+    "zh-CN": "让圈子安心交流。密钥在手，身份自主。",
+  },
   "identity.downloadBackup": { en: "Download backup", "zh-CN": "下载备份" },
   "identity.extensionBackup": {
     en: "This identity is managed by the browser extension. Back it up from the extension.",

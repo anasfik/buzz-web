@@ -3,86 +3,110 @@
 @plugin "@tailwindcss/typography";
 @config "../../../tailwind.config.js";
 
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/manrope.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/manrope-semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond.ttf") format("truetype");
+}
+
 @layer base {
   :root {
-    --radius: 0.5rem;
-    --background: 0 0% 97.3%;
-    --foreground: 0 0% 12.5%;
+    --radius: 0.75rem;
+    --background: 48 33% 96%;
+    --foreground: 161 45% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 12.5%;
+    --card-foreground: 161 45% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 12.5%;
-    --primary: 211 84% 48%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 92.5%;
-    --secondary-foreground: 0 0% 17%;
-    --muted: 0 0% 93.5%;
-    --muted-foreground: 0 0% 43%;
-    --accent: 0 0% 91.5%;
-    --accent-foreground: 0 0% 13%;
+    --popover-foreground: 161 45% 13%;
+    --primary: 161 46% 25%;
+    --primary-foreground: 48 45% 96%;
+    --secondary: 48 24% 89%;
+    --secondary-foreground: 161 45% 17%;
+    --muted: 48 24% 92%;
+    --muted-foreground: 160 16% 35%;
+    --accent: 46 40% 85%;
+    --accent-foreground: 161 45% 13%;
     --destructive: 3 72% 49%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 84%;
-    --input: 0 0% 78%;
-    --ring: 211 84% 48%;
+    --border: 155 15% 77%;
+    --input: 155 16% 53%;
+    --ring: 161 46% 25%;
     --chart-1: 345 57.65% 74.12%;
     --chart-2: 185 37.25% 70.59%;
     --chart-3: 219 81.96% 78.43%;
     --chart-4: 35 61.18% 76.86%;
     --chart-5: 113 32.94% 73.33%;
-    --sidebar: 52 32% 89%;
-    --sidebar-background: 52 32% 89%;
-    --sidebar-foreground: 0 0% 16%;
-    --sidebar-primary: 211 84% 48%;
+    --sidebar: 48 28% 90%;
+    --sidebar-background: 48 28% 90%;
+    --sidebar-foreground: 161 45% 16%;
+    --sidebar-primary: 161 46% 25%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 100%;
     --sidebar-accent-foreground: 0 0% 13%;
     --sidebar-border: 0 0% 70%;
-    --sidebar-ring: 211 84% 48%;
-    --buzz-gradient-light-top: #eeeead;
-    --buzz-gradient-light-bottom: #c9dbe9;
-    --buzz-gradient-dark-top: #514d1e;
-    --buzz-gradient-dark-bottom: #102234;
-    --buzz-content-dark: 0 0% 10.2%;
+    --sidebar-ring: 161 46% 25%;
+    --buzz-gradient-light-top: #ede9d9;
+    --buzz-gradient-light-bottom: #dbe5dc;
+    --buzz-gradient-dark-top: #102d25;
+    --buzz-gradient-dark-bottom: #071d17;
+    --buzz-content-dark: 160 43% 8%;
     --buzz-positive: 145 63% 36%;
     --buzz-warning: 35 92% 45%;
   }
 
   .dark {
-    --radius: 0.5rem;
-    --background: 0 0% 10.5%;
-    --foreground: 0 0% 92%;
-    --card: 0 0% 13%;
-    --card-foreground: 0 0% 92%;
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 94%;
-    --primary: 211 92% 64%;
-    --primary-foreground: 0 0% 8%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 92%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 64%;
-    --accent: 0 0% 22%;
-    --accent-foreground: 0 0% 95%;
+    --radius: 0.75rem;
+    --background: 160 43% 8%;
+    --foreground: 48 35% 95%;
+    --card: 160 38% 12%;
+    --card-foreground: 48 35% 95%;
+    --popover: 160 34% 14%;
+    --popover-foreground: 48 35% 95%;
+    --primary: 44 56% 65%;
+    --primary-foreground: 160 43% 8%;
+    --secondary: 160 31% 17%;
+    --secondary-foreground: 48 35% 95%;
+    --muted: 160 31% 17%;
+    --muted-foreground: 150 15% 72%;
+    --accent: 160 28% 21%;
+    --accent-foreground: 48 35% 95%;
     --destructive: 3 78% 64%;
     --destructive-foreground: 0 0% 8%;
-    --border: 0 0% 27%;
-    --input: 0 0% 31%;
-    --ring: 211 92% 64%;
+    --border: 155 20% 29%;
+    --input: 155 17% 45%;
+    --ring: 44 56% 65%;
     --chart-1: 333 20.78% 38.04%;
     --chart-2: 193 19.61% 38.04%;
     --chart-3: 224 26.67% 41.18%;
     --chart-4: 30 8.24% 42.35%;
     --chart-5: 139 10.98% 38.82%;
-    --sidebar: 0 0% 13%;
-    --sidebar-background: 0 0% 13%;
-    --sidebar-foreground: 0 0% 91%;
-    --sidebar-primary: 211 92% 64%;
-    --sidebar-primary-foreground: 0 0% 8%;
-    --sidebar-accent: 0 0% 22%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 29%;
-    --sidebar-ring: 211 92% 64%;
+    --sidebar: 160 38% 12%;
+    --sidebar-background: 160 38% 12%;
+    --sidebar-foreground: 48 35% 95%;
+    --sidebar-primary: 44 56% 65%;
+    --sidebar-primary-foreground: 160 43% 8%;
+    --sidebar-accent: 160 28% 21%;
+    --sidebar-accent-foreground: 48 35% 95%;
+    --sidebar-border: 155 20% 29%;
+    --sidebar-ring: 44 56% 65%;
   }
 
   * {
@@ -114,7 +138,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "Inter Variable", Inter, "Avenir Next", "Segoe UI", sans-serif;
+    font-family: Manrope, "Segoe UI", sans-serif;
     letter-spacing: 0;
   }
 
@@ -132,7 +156,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid hsl(var(--ring) / 55%);
+    outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
   }
 }
@@ -141,18 +165,30 @@
   --buzz-gradient-top: var(--buzz-gradient-light-top);
   --buzz-gradient-bottom: var(--buzz-gradient-light-bottom);
   --buzz-hover-surface: rgb(0 0 0 / 5%);
-  --buzz-chrome-foreground: rgb(0 0 0 / 54%);
-  --buzz-content-surface: rgb(255 255 255 / 94%);
-  --buzz-content-solid: #f8f8f8;
+  --buzz-chrome-foreground: #435c50;
+  --buzz-content-surface: hsl(var(--background) / 98%);
+  --buzz-content-solid: hsl(var(--background));
 }
 
 :root[data-buzz-sidebar].dark {
   --buzz-gradient-top: var(--buzz-gradient-dark-top);
   --buzz-gradient-bottom: var(--buzz-gradient-dark-bottom);
   --buzz-hover-surface: rgb(255 255 255 / 7%);
-  --buzz-chrome-foreground: rgb(255 255 255 / 58%);
-  --buzz-content-surface: rgb(28 28 30 / 96%);
-  --buzz-content-solid: #1c1c1e;
+  --buzz-chrome-foreground: #b1c2b8;
+  --buzz-content-surface: hsl(var(--background) / 98%);
+  --buzz-content-solid: hsl(var(--background));
+}
+
+.nusuk-welcome-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.nusuk-identity-surface {
+  overflow-y: auto;
+  height: 100dvh;
 }
 
 .buzz-app-surface {

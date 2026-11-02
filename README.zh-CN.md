@@ -1,4 +1,13 @@
-# Buzz Web
+# Nusuk Buzz
+
+这是 Buzz Web 的 `nusuk-buzz` 品牌分支，以翡翠绿、象牙白和金色衔接
+[Nusuk Buzz](https://nusuk.buzz/) 的 Tools for the Heart 产品家族。
+通用、无品牌定制的客户端保留在 `main` 分支。
+
+分支职责见 [agent.md](agent.md)，设计来源与验证计划见
+[品牌契约](docs/nusuk-buzz.md)。内置公开配置连接到 `wss://relay.nusuk.buzz`，
+部署时挂载的配置优先。现有身份与主题偏好保持不变。
+愿景网站中的邮件、SSO、语音聚会和画布尚未在此客户端实现。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 

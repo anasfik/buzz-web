@@ -432,7 +432,7 @@ function Workspace({
 
   const displayName = selectedChannel
     ? channelDisplayName(selectedChannel, state.profiles, pubkey)
-    : "Buzz";
+    : t("app.title");
   const searchChannel = state.channels.find((channel) => channel.id === searchChannelId) ?? null;
   const typingNames = state.typingPubkeys
     .filter(
@@ -883,7 +883,7 @@ export function BuzzWebApp() {
     return (
       <div className="buzz-app-surface flex min-h-dvh items-center justify-center">
         <div className="text-center">
-          <img alt="Buzz" className="mx-auto h-12 w-12 rounded-xl" src={buzzAppIcon} />
+          <img alt={t("app.title")} className="mx-auto h-12 w-12 rounded-xl" src={buzzAppIcon} />
           {error ? (
             <p className="mt-4 text-sm text-destructive">{error}</p>
           ) : (

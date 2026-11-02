@@ -8,7 +8,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['"Inter Variable"', "Inter", '"Avenir Next"', '"Segoe UI"', "sans-serif"],
+        sans: ["Manrope", '"Segoe UI"', "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",
