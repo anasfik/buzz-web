@@ -50,7 +50,7 @@ async function createIdentity(page: Page, passphrase: string) {
   await page.getByLabel("Confirm passphrase").fill(passphrase);
   await page
     .getByLabel(
-      "I understand that Buzz cannot recover this identity if I lose the encrypted vault and backup.",
+      "I understand that Nusuk Buzz cannot recover this identity if I lose the encrypted vault and backup.",
     )
     .check();
   await page.getByRole("button", { name: "Create", exact: true }).click();
