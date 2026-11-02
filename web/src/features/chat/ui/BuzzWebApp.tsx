@@ -139,12 +139,14 @@ function Workspace({
   const threadRoot = state.messages.find((message) => message.event.id === threadRootId) ?? null;
   const threadReplyTarget =
     state.messages.find((message) => message.event.id === threadReplyTargetId) ?? null;
-  const canCreateChannel = state.communityRole === "owner" || state.communityRole === "admin";
+  const canManageCommunity = state.communityRole === "owner" || state.communityRole === "admin";
   const selectedRole = selectedChannel?.members.find(
     (member) => member.pubkey.toLowerCase() === pubkey.toLowerCase(),
   )?.role;
-  const canManageChannel = canCreateChannel || selectedRole === "owner" || selectedRole === "admin";
   const connected = state.connectionState === "connected";
+  const canCreateChannel = connected;
+  const canManageChannel =
+    canManageCommunity || selectedRole === "owner" || selectedRole === "admin";
   const features = resolveRelayFeatures(config.features, {
     projects: relayHasProjects,
     forum: state.channels.some((channel) => channel.type === "forum"),
@@ -445,7 +447,7 @@ function Workspace({
       <AppNavigation
         activeTool={activeTool}
         canCreateChannel={canCreateChannel}
-        canManageMembers={canCreateChannel}
+        canManageMembers={canManageCommunity}
         channels={state.channels}
         communityName={config.communityName}
         connectionState={state.connectionState}
@@ -617,6 +619,7 @@ function Workspace({
               <InboxView
                 approvalPending={inbox.approvalPending}
                 channels={state.channels}
+                connected={connected}
                 error={inbox.error}
                 items={inbox.items}
                 loading={inbox.loading}
@@ -634,6 +637,7 @@ function Workspace({
               />
             ) : activeTool === "new-dm" ? (
               <NewDmView
+                connected={connected}
                 currentPubkey={pubkey}
                 profiles={state.profiles}
                 relayUrl={config.relayUrl}
@@ -650,7 +654,7 @@ function Workspace({
               />
             ) : activeTool === "settings" ? (
               <SettingsView
-                canInvite={canCreateChannel}
+                canInvite={canManageCommunity}
                 connectionState={state.connectionState}
                 profile={
                   state.profiles[pubkey] ?? {
@@ -764,6 +768,7 @@ function Workspace({
           allowForum={features.forum}
           canCreate={canCreateChannel}
           channels={session.discoveredChannels}
+          connected={connected}
           currentPubkey={pubkey}
           initialView={channelBrowserInitialView}
           onClose={() => setDialog(null)}
@@ -776,6 +781,7 @@ function Workspace({
       {dialog === "search" ? (
         <SearchDialog
           channels={state.channels}
+          connected={connected}
           profiles={state.profiles}
           onClose={() => setDialog(null)}
           onSearch={session.search}
