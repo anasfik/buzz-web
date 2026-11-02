@@ -56,10 +56,17 @@ test("chat workspace loads with Buzz branding and relay data", async ({ page }) 
   await enableDemo(page);
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", /app-icon\.png$/);
+  await expect(page.locator('link[rel="icon"]').first()).toHaveAttribute(
+    "href",
+    /nusuk-favicon\.ico$/,
+  );
+  await expect(page.locator('link[rel="icon"]').nth(1)).toHaveAttribute(
+    "href",
+    /nusuk-favicon-32\.png$/,
+  );
   await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute(
     "href",
-    /app-icon\.png$/,
+    /nusuk-apple-touch-icon\.png$/,
   );
   await expect(page.getByRole("img", { name: "Nusuk Buzz", exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "general" })).toBeVisible();
@@ -1113,7 +1120,7 @@ test("invite requires age and legal consent before opening Buzz", async ({ page 
 
   const ageConfirmation = page.getByLabel("I am 18 years of age or older.");
   const agreementConfirmation = page.getByLabel(
-    "I agree to the Buzz Terms of Service and Privacy Policy.",
+    "I agree to the Terms of Service and Privacy Policy.",
   );
   const acceptInvite = page.getByRole("button", {
     name: "Accept invite in Buzz",
@@ -1139,7 +1146,7 @@ test("invite requires age and legal consent before opening Buzz", async ({ page 
   await page
     .locator("label")
     .filter({
-      hasText: "I agree to the Buzz Terms of Service and Privacy Policy.",
+      hasText: "I agree to the Terms of Service and Privacy Policy.",
     })
     .click({ position: { x: 8, y: 8 } });
   await expect(agreementConfirmation).toBeChecked();

@@ -183,8 +183,8 @@ const messages = {
   "identity.import": { en: "Import", "zh-CN": "导入" },
   "identity.importTitle": { en: "Import a private key", "zh-CN": "导入私钥" },
   "identity.lossAcknowledgement": {
-    en: "I understand that Buzz cannot recover this identity if I lose the encrypted vault and backup.",
-    "zh-CN": "我明白，如果加密保险库和备份均丢失，Buzz 无法恢复此身份。",
+    en: "I understand that Nusuk Buzz cannot recover this identity if I lose the encrypted vault and backup.",
+    "zh-CN": "我明白，如果加密保险库和备份均丢失，Nusuk Buzz 无法恢复此身份。",
   },
   "identity.lossWarning": {
     en: "A new private key will be generated on this device. Create an encrypted backup immediately after signing in.",
@@ -310,11 +310,11 @@ const messages = {
   "invite.roleAdmin": { en: "Admin", "zh-CN": "管理员" },
   "invite.roleMember": { en: "Member", "zh-CN": "成员" },
   "invite.policyAgreementAccessible": {
-    en: "I agree to the Buzz Terms of Service and Privacy Policy.",
-    "zh-CN": "我同意 Buzz 服务条款和隐私政策。",
+    en: "I agree to the Terms of Service and Privacy Policy.",
+    "zh-CN": "我同意服务条款和隐私政策。",
   },
   "invite.policyAgreementAnd": { en: " and ", "zh-CN": "和" },
-  "invite.policyAgreementPrefix": { en: "I agree to the Buzz ", "zh-CN": "我同意 Buzz " },
+  "invite.policyAgreementPrefix": { en: "I agree to the ", "zh-CN": "我同意 " },
   "invite.policyAgreementSuffix": { en: ".", "zh-CN": "。" },
   "invite.privacyPolicy": { en: "Privacy Policy", "zh-CN": "隐私政策" },
   "invite.termsOfService": { en: "Terms of Service", "zh-CN": "服务条款" },
@@ -736,8 +736,8 @@ const messages = {
     "zh-CN": "Relay 地址无效。",
   },
   "error.relayUrlRequired": {
-    en: "Configure a Relay address before starting Buzz Web.",
-    "zh-CN": "启动 Buzz Web 前必须配置 Relay 地址。",
+    en: "Configure a Relay address before starting Nusuk Buzz.",
+    "zh-CN": "启动 Nusuk Buzz 前必须配置 Relay 地址。",
   },
   "error.pubkeyInvalid": {
     en: "Enter a valid npub or 64-character hexadecimal public key.",
@@ -748,7 +748,10 @@ const messages = {
     "zh-CN": "请输入有效的 nsec 或 64 位十六进制私钥。",
   },
   "error.secretLength": { en: "Private keys must be 32 bytes.", "zh-CN": "私钥必须是 32 字节。" },
-  "error.signerLocked": { en: "Unlock your Buzz identity first.", "zh-CN": "请先解锁 Buzz 身份。" },
+  "error.signerLocked": {
+    en: "Unlock your Nusuk Buzz identity first.",
+    "zh-CN": "请先解锁 Nusuk Buzz 身份。",
+  },
   "error.userStateSync": {
     en: "Failed to synchronize favorites, mutes, or read state with the Relay.",
     "zh-CN": "无法与 Relay 同步收藏、静音或已读状态。",

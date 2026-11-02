@@ -12,6 +12,10 @@ describe("Nusuk brand contract", () => {
     expect(html).toContain("%BASE_URL%nusuk-favicon.ico");
     expect(html).toContain("%BASE_URL%nusuk-favicon-32.png");
     expect(html).toContain("%BASE_URL%nusuk-apple-touch-icon.png");
+    expect(html).toContain(
+      'property="og:image" content="https://buzz.nusuk.buzz/app/nusuk-og.jpg"',
+    );
+    expect(html).toContain('name="twitter:card" content="summary_large_image"');
     expect(manifest.icons).toEqual([
       { src: "./nusuk-icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
       { src: "./nusuk-icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
@@ -22,7 +26,13 @@ describe("Nusuk brand contract", () => {
     const manifest = JSON.parse(manifestText);
     expect(config.communityName).toBe("Nusuk Buzz");
     expect(config.relayUrl).toBe("wss://relay.nusuk.buzz");
-    expect(config.agents).toEqual([]);
+    expect(config.agents).toEqual([
+      {
+        pubkey: "d0999dd2c6e4dc0742662554849e4b12fe80ce851aa082dca0cec15a15938aac",
+        name: "Nusuk Agent",
+        startable: false,
+      },
+    ]);
     expect(manifest.name).toBe("Nusuk Buzz");
     expect(html).toContain("<title>Nusuk Buzz</title>");
   });
