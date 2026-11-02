@@ -9,10 +9,16 @@
   "theme_color": "#0c211a",
   "icons": [
     {
-      "src": "./app-icon.png",
-      "sizes": "168x168",
+      "src": "./nusuk-icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./nusuk-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

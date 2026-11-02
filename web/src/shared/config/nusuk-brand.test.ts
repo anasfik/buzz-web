@@ -7,6 +7,16 @@ import manifestText from "../../../public/manifest.webmanifest?raw";
 afterEach(() => vi.unstubAllGlobals());
 
 describe("Nusuk brand contract", () => {
+  it("uses fresh favicon URLs and correctly sized install icons", () => {
+    const manifest = JSON.parse(manifestText);
+    expect(html).toContain("%BASE_URL%nusuk-favicon.ico");
+    expect(html).toContain("%BASE_URL%nusuk-favicon-32.png");
+    expect(html).toContain("%BASE_URL%nusuk-apple-touch-icon.png");
+    expect(manifest.icons).toEqual([
+      { src: "./nusuk-icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "./nusuk-icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+    ]);
+  });
   it("ships Nusuk metadata and public relay defaults without invented agents", () => {
     const config = JSON.parse(configText);
     const manifest = JSON.parse(manifestText);
