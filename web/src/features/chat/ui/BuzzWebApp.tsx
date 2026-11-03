@@ -43,6 +43,7 @@ import { CommunityInviteDialog } from "@/features/community/ui/CommunityInviteDi
 import type { InboxItem } from "@/features/inbox/lib/inbox-model";
 import { InboxView } from "@/features/inbox/ui/InboxView";
 import { useInbox } from "@/features/inbox/use-inbox";
+import { ModerationView } from "@/features/moderation/ui/ModerationView";
 import { useForegroundNotifications } from "@/features/notifications/use-foreground-notifications";
 import { useNotificationClicks } from "@/features/notifications/use-notification-clicks";
 import { ReposPanel } from "@/features/repos/ui/ReposPanel";
@@ -468,6 +469,7 @@ function Workspace({
         activeTool={activeTool}
         canCreateChannel={canCreateChannel}
         canManageMembers={canManageCommunity}
+        canModerate={canManageCommunity && !demo}
         channels={state.channels}
         communityName={config.communityName}
         connectionState={state.connectionState}
@@ -654,6 +656,13 @@ function Workspace({
                 onRespondToApproval={(item, approved) =>
                   inbox.respondToApproval(item.event, approved)
                 }
+              />
+            ) : activeTool === "moderation" ? (
+              <ModerationView
+                relayUrl={config.relayUrl}
+                role={state.communityRole}
+                viewerPubkey={pubkey}
+                onClose={() => setActiveTool(null)}
               />
             ) : activeTool === "new-dm" ? (
               <NewDmView
