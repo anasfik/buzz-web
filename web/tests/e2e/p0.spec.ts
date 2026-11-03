@@ -1670,7 +1670,7 @@ test("repository activity uses Simplified Chinese in a Chinese browser", async (
   await page.getByRole("button", { name: "新建", exact: true }).click();
   await page.getByLabel("新保险库口令").fill("repo activity zh passphrase");
   await page.getByLabel("确认口令").fill("repo activity zh passphrase");
-  await page.getByLabel("我明白，如果加密保险库和备份均丢失，Buzz 无法恢复此身份。").check();
+  await page.getByLabel("我明白，如果加密保险库和备份均丢失，Nusuk Buzz 无法恢复此身份。").check();
   await page.getByRole("button", { name: "新建", exact: true }).click();
   await expect(page.getByRole("button", { name: "个人菜单" })).toBeVisible();
 
