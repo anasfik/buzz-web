@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://buzz.example.com/brand/profile.schema.json",
+  "title": "Buzz Web brand profile",
+  "description": "Brand surface for one Buzz Web variant. Every path is relative to the repository root and must already exist there. scripts/brand/new-app.mjs rejects unknown, missing, or malformed fields before it writes anything.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "displayName",
+    "shortName",
+    "communityName",
+    "tagline",
+    "description",
+    "manifestDescription",
+    "relayUrl",
+    "ogImageUrl",
+    "themeColor",
+    "assets",
+    "features",
+    "flags"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,30}$",
+      "description": "Lowercase slug used for the branch, the worktree directory, and every generated asset filename."
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "pattern": "^[^<>\"&{}]+$",
+      "description": "Full product name, used verbatim in the page title, i18n copy, and the manifest name."
+    },
+    "shortName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[^<>\"&{}]+$",
+      "description": "PWA manifest short_name; the value an operating system can show under a home-screen icon."
+    },
+    "communityName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "pattern": "^[^<>\"&{}]+$",
+      "description": "Public config communityName. Runtime config overrides it; it is also the fallback and the welcome heading."
+    },
+    "tagline": { "$ref": "#/$defs/localized" },
+    "description": {
+      "$ref": "#/$defs/localized",
+      "description": "Social and meta description. The page meta description is '<displayName> — <description.en>'. zh-CN is optional and is recorded for future localized metadata; it is not rendered today."
+    },
+    "manifestDescription": {
+      "$ref": "#/$defs/localized",
+      "description": "PWA manifest description. Only en is written because the manifest has a single description field."
+    },
+    "relayUrl": {
+      "type": "string",
+      "pattern": "^wss?://[^\\s]+$",
+      "description": "Public Relay WebSocket URL written to config.json."
+    },
+    "ogImageUrl": {
+      "type": "string",
+      "pattern": "^https://[^\\s]+$",
+      "description": "Absolute social card URL, including the deployment base path, e.g. https://app.example.com/app/<id>-og.jpg."
+    },
+    "themeColor": {
+      "type": "string",
+      "pattern": "^#[0-9a-f]{6}$",
+      "description": "Browser theme color and PWA theme_color."
+    },
+    "backgroundColor": {
+      "type": "string",
+      "pattern": "^#[0-9a-f]{6}$",
+      "description": "PWA background_color; defaults to themeColor."
+    },
+    "fonts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sans": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1, "pattern": "^\\S(.*\\S)?$" },
+          "description": "Tailwind fontFamily.sans. Quote a multi-word family inside the string, e.g. '\"Segoe UI\"'. Files must be self-hosted; no remote font hosts."
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "favicon",
+        "favicon32",
+        "appleTouchIcon",
+        "icon192",
+        "icon512",
+        "ogImage",
+        "logo",
+        "appIcon"
+      ],
+      "properties": {
+        "favicon": { "$ref": "#/$defs/ico" },
+        "favicon32": { "$ref": "#/$defs/png" },
+        "appleTouchIcon": { "$ref": "#/$defs/png" },
+        "icon192": { "$ref": "#/$defs/png" },
+        "icon512": { "$ref": "#/$defs/png" },
+        "ogImage": {
+          "type": "string",
+          "pattern": "^web/.+\\.(png|jpe?g|webp)$",
+          "description": "1200x640 social card source; copied to web/public/<id>-og.<ext>."
+        },
+        "logo": {
+          "type": "string",
+          "pattern": "^web/.+\\.png$",
+          "description": "In-app logo source; copied over web/src/assets/app-icon@3x.png."
+        },
+        "appIcon": {
+          "type": "string",
+          "pattern": "^web/.+\\.png$",
+          "description": "Legacy public icon source; copied over web/public/app-icon.png."
+        }
+      },
+      "description": "Source artwork in this repository. The script writes web/public/<id>-{favicon.ico,favicon-32.png,apple-touch-icon.png,icon-192.png,icon-512.png,og.<ext>} with sizes 32, 180, 192, 512 respected."
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["projects", "forum"],
+      "properties": {
+        "projects": { "type": "boolean" },
+        "forum": { "type": "boolean" }
+      },
+      "description": "Public Relay feature toggles, matching RelayFeatureState in web/src/shared/features/relay-features.ts."
+    },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pubkey", "name"],
+        "properties": {
+          "pubkey": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "name": { "type": "string", "minLength": 1, "maxLength": 60 },
+          "startable": { "type": "boolean" }
+        }
+      },
+      "description": "Optional declared Relay agents written to config.json. Omit the key to publish an empty list."
+    },
+    "flags": {
+      "type": "object",
+      "additionalProperties": { "type": "boolean" },
+      "description": "Product-specific switches the script does not implement, only records and warns about. Known: nusukAuth (Nusuk SSO wiring in web/src/shared/lib/nusuk-auth.ts)."
+    }
+  },
+  "$defs": {
+    "localized": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string", "minLength": 1, "pattern": "^[^{}]+$" },
+        "zh-CN": { "type": "string", "minLength": 1, "pattern": "^[^{}]+$" }
+      }
+    },
+    "png": {
+      "type": "string",
+      "pattern": "^web/.+\\.png$"
+    },
+    "ico": {
+      "type": "string",
+      "pattern": "^web/.+\\.ico$"
+    }
+  }
+}

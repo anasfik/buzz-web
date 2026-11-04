@@ -1,0 +1,47 @@
+{
+  "id": "nusuk",
+  "displayName": "Nusuk Buzz",
+  "shortName": "Nusuk Buzz",
+  "communityName": "Nusuk Buzz",
+  "tagline": {
+    "en": "A calm place for your circles. Your key, your identity.",
+    "zh-CN": "让圈子安心交流。密钥在手，身份自主。"
+  },
+  "description": {
+    "en": "a calm place for your circles. Nostr-native identity, channels and conversations for Tools for the Heart."
+  },
+  "manifestDescription": {
+    "en": "A calm place for your circles. Tools for the Heart, connected by Nostr."
+  },
+  "relayUrl": "wss://relay.nusuk.buzz",
+  "ogImageUrl": "https://buzz.nusuk.buzz/app/nusuk-og.jpg",
+  "themeColor": "#0c211a",
+  "backgroundColor": "#0c211a",
+  "fonts": {
+    "sans": ["Manrope", "\"Segoe UI\"", "sans-serif"]
+  },
+  "assets": {
+    "favicon": "web/public/nusuk-favicon.ico",
+    "favicon32": "web/public/nusuk-favicon-32.png",
+    "appleTouchIcon": "web/public/nusuk-apple-touch-icon.png",
+    "icon192": "web/public/nusuk-icon-192.png",
+    "icon512": "web/public/nusuk-icon-512.png",
+    "ogImage": "web/public/nusuk-og.jpg",
+    "logo": "web/src/assets/app-icon@3x.png",
+    "appIcon": "web/public/app-icon.png"
+  },
+  "features": {
+    "projects": false,
+    "forum": false
+  },
+  "agents": [
+    {
+      "pubkey": "d0999dd2c6e4dc0742662554849e4b12fe80ce851aa082dca0cec15a15938aac",
+      "name": "Nusuk Agent",
+      "startable": false
+    }
+  ],
+  "flags": {
+    "nusukAuth": false
+  }
+}
